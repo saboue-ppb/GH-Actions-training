@@ -1,9 +1,7 @@
-bash
-#!/bin/bash
+FROM alpine:3.10
 
-# Write a message to the console
-echo "Hello, this is a message from entrypoint.sh!"
+COPY entrypoint.sh /entrypoint.sh
 
-# Set the output parameter
-OUTPUT="This is the output parameter"
-echo "::set-output name=result::$OUTPUT"
+RUN chmod +x entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
